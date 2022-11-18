@@ -8,6 +8,12 @@ import './app.scss'
 
 
 const App = () => {
+    const data = [
+        {id: 1, name: "Maks M.", salary: 1000, status: true},
+        {id: 2, name: "Dima R.", salary: 2000, status: false},
+        {id: 3, name: "Olga T.", salary: 4000, status: true}
+    ]
+
     return(
         <div className="app">
             <AppInfo/>
@@ -15,7 +21,7 @@ const App = () => {
                     <SearchPanel/>
                     <AppFilter/>
                 </div>
-            <AllEmployees />
+            <AllEmployees data={data}/>
             <AddFrom />
         </div>
     )
