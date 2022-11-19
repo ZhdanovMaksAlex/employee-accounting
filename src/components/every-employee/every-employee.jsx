@@ -1,15 +1,39 @@
+import { useState } from 'react'
 import './every-employee.scss'
 
 
-const EveryEmployee  = ({name,salary, deleteItem}) => {
+const EveryEmployee  = ({deleteItem,salary,name,like,increase}) => {
+
+const [increas, setIncreas] = useState(increase);
+const [rise, setRise] = useState(like);
+
+
+    const onIncrease = () => {
+        setIncreas(increas => !increas)  
+    }
+
+    const onRise = () => {
+        setRise(rise => !rise)                  
+    }
+
+
+let classNames = "list-group-item d-flex justify-content-between";
+        if (!increas) {
+            classNames += ' increase';
+        }
+        if (rise) {
+            classNames += ' like';
+        }
+
     return (
-        <li className="list-group-item d-flex justify-content-between">
-            <span className="list-group-item-label">{name}</span>
-            <input type="text" className="list-group-item-input" defaultValue={salary + "$"}/>
+        <li className={classNames}>
+            <span className="list-group-item-label"onClick={onIncrease}>{name}</span>
+             <input type="text" className="list-group-item-input" defaultValue={salary + "$"}/>
 
             <div className='d-flex justify-content-center align-items-center'>
                 <button type="button"
-                    className="btn-cookie btn-sm">
+                    className="btn-cookie btn-sm"
+                    onClick={onRise}>
                     <i className="fas fa-cookie"></i>
                 </button>
 

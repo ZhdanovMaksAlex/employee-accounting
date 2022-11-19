@@ -1,20 +1,15 @@
-import { useState } from 'react'
 import EveryEmployee from '../every-employee/every-employee'
 
 import './all-employees.scss'
 
 
-const AllEmployees = ({data}) => {
-    const [users, setUsers] = useState(data);
-
-    const removeItem = id => {
-        setUsers(prevState => prevState.filter(el => el.id !== id))
-     }
-
-    let elem = users.map(item => {
+const AllEmployees = ({removeItem, users}) => {
+    let elem = users.map((item) => {
         const {id} = item
         return(
-            <EveryEmployee {...item} key={id} deleteItem={() => removeItem(id)}/> 
+            <EveryEmployee {...item} 
+                           key={id} 
+                           deleteItem={() => removeItem(id)}/> 
         )
     })
 

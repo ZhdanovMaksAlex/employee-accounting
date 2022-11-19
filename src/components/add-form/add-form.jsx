@@ -1,14 +1,14 @@
 import './add-form.scss'
 
-
-const AddFrom = () => {
+const AddForm = () => {
+  
     return (
         <div className="add-form">
             <h3>Добавьте нового сотрудника</h3>
             <form className="app-add-form d-flex">
                 <input type="text"
                        className="form-control"
-                       placeholder="Как его зовут?" />
+                       placeholder="Как его зовут?"/>
 
                 <input type="number"
                        className="form-control"
@@ -20,4 +20,4 @@ const AddFrom = () => {
         </div>
     )
 }
-export default AddFrom;
+export default AddForm;
