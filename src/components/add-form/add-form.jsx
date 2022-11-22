@@ -1,13 +1,20 @@
 import { useState } from 'react';
 import './add-form.scss'
 
-const AddForm = (addUsers, employeeData) => {
+const AddForm = ({addUser}) => {
     const [inputValueUser, setInputValueUser] = useState('');
     const [inputValueSalary, setInputValueSalary] = useState('');
  
+    
+
     const onSubmitValue = (e) => {
         e.preventDefault();
+        addUser(inputValueUser,inputValueSalary);
+            setInputValueUser('');
+            setInputValueSalary('');
     }
+
+    
 
     return (
         <div className="add-form">
@@ -16,6 +23,7 @@ const AddForm = (addUsers, employeeData) => {
                 <input type="text"
                        className="form-control"
                        placeholder="Как его зовут?"
+                       name="name"
                        value={inputValueUser}
                        onChange={(e) => setInputValueUser(e.target.value)}/>
 
@@ -23,6 +31,7 @@ const AddForm = (addUsers, employeeData) => {
                        className="form-control"
                        placeholder="З/П в $?"
                        value={inputValueSalary}
+                       name="salary"
                        onChange={(e) => setInputValueSalary(e.target.value) }/>
 
                 <button 

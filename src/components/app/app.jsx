@@ -21,17 +21,16 @@ const App = () => {
         setUsers(prevState => prevState.filter(el => el.id !== id))
     }
 
-    
-    const [employeeData, setEmployeData] = useState()
-    const addUser = () => {
+
+    const addUser = (name, salary,increase,like) => {
         const newUsers = {
             id: uuidv4(),
-            name: '',
-            salary: '',
-            increase: true,
-            like: false
+            name,
+            salary,
+            increase,
+            like
         };
-        setEmployeData(prevState => [...prevState, newUsers])
+        setUsers(prevState => [...prevState, newUsers])
     }
 
   
@@ -43,7 +42,7 @@ const App = () => {
                     <AppFilter/>
                 </div>
             <AllEmployees removeItem={removeItem} users={users}/>
-            <AddForm addUser={addUser} employeeData={employeeData}/>
+            <AddForm addUser={addUser} users={users}/>
         </div>
     )
 }
