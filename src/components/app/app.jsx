@@ -14,15 +14,15 @@ const App = () => {
         {id: 2, name: "Dima R.", salary: 2000, increase: false, like: false},
         {id: 3, name: "Olga T.", salary: 4000, increase: true, like: false},
     ];
-
-
+    
     const [users, setUsers] = useState(dataEmployee);
     const removeItem = id => {
         setUsers(prevState => prevState.filter(el => el.id !== id))
     }
 
-
     const addUser = (name, salary,increase,like) => {
+        if(!name) {return}
+        if(!salary) {return}
         const newUsers = {
             id: uuidv4(),
             name,
@@ -30,10 +30,9 @@ const App = () => {
             increase,
             like
         };
-        setUsers(prevState => [...prevState, newUsers])
+        setUsers(prevState => [...prevState, newUsers]);
     }
 
-  
     return(
         <div className="app">
             <AppInfo/>
